@@ -1,25 +1,64 @@
-var mongoose = require('mongoose')
+var express = require('express')
+var bodyParser = require('body-parser')
 
-mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost:27017/TodoAppMongoos', {useMongoClient: true})
+var {mongoose} = require('./db/mongoose')
+var {Todo} = require('./model/todo')
+var {User} = require('./model/user')
 
+var app = express()
 
-var Todo = mongoose.model('Todo', {
-  text: {
-    type: String,
-    required: true,
-    minlength: 1,
-    trim: true
-  },
-  completed: {
-    type: Boolean,
-    default: false
-  },
-  completedAt: {
-    type: Number,
-    default: null
-  }
+app.use(bodyParser.json())
+
+app.post('/todos', (req, res) => {
+  var todo = new Todo({
+    text: req.body.text
+  })
+
+  todo.save().then((doc) => {
+    res.send(doc)
+  }, (e) => {
+    res.status(400).send(e.message)
+  })
 })
+
+// app.get('todos', (req, res) => {
+//
+// })
+
+app.listen(3000, () => {
+  console.log('Server on port 3000');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var Todo = mongoose.model('Todo', {
+//   text: {
+//     type: String,
+//     required: true,
+//     minlength: 1,
+//     trim: true
+//   },
+//   completed: {
+//     type: Boolean,
+//     default: false
+//   },
+//   completedAt: {
+//     type: Number,
+//     default: null
+//   }
+// })
 
 // var newTodo = new Todo({
 //   text: 'Cook dinner'
@@ -45,23 +84,23 @@ var Todo = mongoose.model('Todo', {
 
 // user model
 // email - require  it - trim it -type -minlength 1
+//
+// var User = mongoose.model('User', {
+//   email: {
+//     type: String,
+//     required: true,
+//     trim: true,
+//     minlength: 1,
+//     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, '{VALUE} is not email, Please fill a valid email address']
+//   }
+// })
 
-var User = mongoose.model('User', {
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-    minlength: 1,
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, '{VALUE} is not email, Please fill a valid email address']
-  }
-})
-
-var user = new User({
-  email: 'as@as'
-})
-
-user.save().then((doc) => {
-  console.log(JSON.stringify(doc, undefined, 2))
-}, (e) => {
-  console.log('Unable to save user', e);
-})
+// var user = new User({
+//   email: 'as@as'
+// })
+//
+// user.save().then((doc) => {
+//   console.log(JSON.stringify(doc, undefined, 2))
+// }, (e) => {
+//   console.log('Unable to save user', e);
+// })
