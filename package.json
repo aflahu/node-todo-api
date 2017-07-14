@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node server/server.js",
+=======
+    "start": "node servr/server.js",
+>>>>>>> eabd0ec97cf20db253a7ec59a44159e415b653f1
     "test": "mocha server/**/*.test.js",
     "test-watch": "nodemon --exec 'npm test'"
 
