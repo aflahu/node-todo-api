@@ -10,13 +10,8 @@ var UserSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minlength: 1,
-    // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, '{VALUE} is not email, Please fill a valid email address'],
-    unique: true,
-    validate: {
-      isAsync: false,
-      validator: validator.isEmail,
-      message: '{VALUE} is not valid email'
-    }
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, '{VALUE} is not email, Please fill a valid email address'],
+    unique: true
   },
   password: {
     type: String,
