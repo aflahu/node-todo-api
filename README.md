@@ -56,6 +56,7 @@ set header "x-auth" : token
 #### PATCH /todos/:id
 
 set header "x-auth" : token
+
 JSON example
 ```
 {
