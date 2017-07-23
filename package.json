@@ -1,7 +1,7 @@
 {
   "name": "todo-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Todo RESTful API build with Node.JS, Express, Mocha, MongoDB, and more",
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
@@ -11,7 +11,7 @@
   "engine": {
     "node": "^6.2.2"
   },
-  "author": "",
+  "author": "Yogi Erka Julyansa Putra",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -22,6 +22,7 @@
     "lodash": "^4.17.4",
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.1",
+    "nodemon": "^1.11.0",
     "validator": "^8.0.0"
   },
   "devDependencies": {
