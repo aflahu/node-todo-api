@@ -4,12 +4,14 @@
   "description": "Todo RESTful API build with Node.JS, Express, Mocha, MongoDB, and more",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/server-compiled.js",
     "test": "export NODE_ENV=test && mocha server/**/*.test.js",
-    "test-watch": "nodemon --exec 'npm test'"
+    "test-compiled": "export NODE_ENV=test && mocha server/**/*.test-compiled.js",
+    "test-watch": "nodemon --exec 'npm test'",
+    "build": "$(npm bin)/babel ./server/server.js --out-file ./server/server-compiled.js"
   },
   "engine": {
-    "node": "^8.1.0"
+    "node": "^6.1.0"
   },
   "author": "Yogi Erka Julyansa Putra",
   "license": "ISC",
@@ -26,6 +28,8 @@
     "validator": "^8.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
     "expect": "^1.20.2",
     "mocha": "^3.4.2",
     "supertest": "^3.0.0"
