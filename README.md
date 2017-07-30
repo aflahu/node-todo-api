@@ -1,4 +1,7 @@
 # Node Todo Api
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/252a0032dec24b61a6a89ebf949b466e)](https://www.codacy.com/app/erka.j.p/node-todo-api?utm_source=github.com&utm_medium=referral&utm_content=Erkajp/node-todo-api&utm_campaign=badger)
+
 Todo RESTful API build with Node.JS, Express, Mocha, MongoDB, and more
 > this repo following instruction [ Andrew Mead in udemy](https://www.udemy.com/the-complete-nodejs-developer-course-2/)
 
