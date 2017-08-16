@@ -1,6 +1,6 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose");
 
-var Todo = mongoose.model('Todo', {
+var Todo = mongoose.model("Todo", {
   text: {
     type: String,
     required: true,
@@ -17,8 +17,12 @@ var Todo = mongoose.model('Todo', {
   },
   _creator: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    required: true
   }
-})
+});
 
-module.exports = {Todo}
+var TodoRedis = todo => {
+  return [`${todo._id.toString()}:${todo._creator.toString()}`, "id", todo._id.toString(), "text", todo.text, "completed", todo.completed, "completedAt", todo.completedAt || "", "creator", todo._creator.toString()];
+};
+
+module.exports = { Todo, TodoRedis };
