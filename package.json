@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node server/server-compiled.js",
     "test": "export NODE_ENV=test && mocha server/**/*.test.js",
-    "test-compiled": "export NODE_ENV=test && npm run build && mocha server/**/*.test-compiled.js",
+    "test-compiled": "npm run build && export NODE_ENV=test && mocha server/**/*.test-compiled.js",
     "test-watch": "nodemon --exec 'npm test'",
     "build": "$(npm bin)/babel ./server/server.js --out-file ./server/server-compiled.js"
   },
@@ -28,7 +28,7 @@
     "validator": "^8.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-preset-es2017": "^6.24.1",
     "expect": "^1.20.2",
     "mocha": "^3.4.2",
